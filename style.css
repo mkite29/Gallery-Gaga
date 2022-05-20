@@ -1,0 +1,361 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+#action-bar {
+    background-color: orange;
+    height: 8vh;
+    display: flex;
+}
+
+#action-bar * {
+    border: 3px solid brown;
+    border-radius: 5px;
+    margin: 10px 5px;
+    padding: 1px;
+    cursor: pointer;
+}
+
+#action-bar span:hover {
+    background-color: white;
+}
+
+#action-bar select {
+    background-color: rgb(36, 210, 233);
+}
+
+#action-bar select option {
+    margin: 10px;
+    border-bottom: 2px solid orange;
+}
+
+#content {
+    height: 92vh;
+    display: flex;
+}
+
+
+#content-list {
+    width: 15vw;
+    padding: 5px;
+}
+
+#content-details {
+    width: 85vw;
+    border: 5px solid blue;
+}
+
+#content-details-overlay {
+    display: none;
+    position: fixed;
+    height: 92vh;
+    width: 100vw;
+    top:8vh;
+    left: 15vw;
+    background-color: coral;
+    opacity: 0.5;
+    z-index: 2;
+    cursor: pointer;
+    
+}
+
+#play-overlay {
+    position: fixed;
+    height: 92vh;
+    width: 100vw;
+    top:8vh;
+    left:0%;
+    background-color: lightgoldenrodyellow  ;
+    opacity: 0.5;
+    z-index: 3;
+    cursor: pointer;
+
+    /* initially ye hidden hona  chahiye */
+    display: none;
+}
+
+#play-overlay #text{
+
+    /* isse play album likha hua ayega jab slide show karengei. */
+
+    position: absolute;
+    font-size: 30px;
+    color: black;
+    width: 50%;
+    top:-5%;
+    left:55%;
+    transform: translate(-50%, -50%);
+    
+    /* vertically aligning text within div*/
+    line-height: 80px;
+    vertical-align:middle;
+
+    text-align: center; /*horizontally align text within this div*/
+    text-decoration: underline;
+}
+
+#overlay {
+    position: fixed;
+    height: 92vh;
+    width: 100vw;
+    top:8vh;
+    left:0%;
+    background-color: lightgoldenrodyellow  ;
+    opacity: 0.5;
+    z-index: 2 ;
+    cursor: pointer;
+}
+
+#text {
+    position: absolute;
+    font-size: 50px;
+    color: white;
+    width: 50%;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    
+    /* vertically aligning text within div*/
+    line-height: 100px;
+    vertical-align:middle;
+
+    text-align: center; /*horizontally align text within this div*/
+    text-decoration: underline;
+}
+
+#new-slide {
+    border: 1px solid brown;
+    background-color: greenyellow;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 100px;
+    vertical-align: middle;
+    cursor: pointer;
+    color: black;
+    font-weight: 900;
+    margin: 5px;
+
+}
+
+#new-slide:hover {
+    transform: scale(1.02);
+    background-color: yellow;
+}
+
+
+.slide{
+    height: 100px;
+    width: 95%;
+    border: 2px solid brown;
+    background-color: teal;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    
+    /* sabki opacity kuch 0.8 se set kerdei tora dhundla sa dikehga */
+    /* and jiko hover karengei vo clearly dikhega */
+    opacity: 0.8;
+
+    /* left mei slide list mei 2 slides ke beech mei distance margin hai */
+    margin: 5px 2px;
+
+    /* padding ander wala gap*/
+    /* padding: 5px; */
+}
+
+.slide:hover{
+    transform: scale(1.05);
+    border: 2px solid black;
+    background-color: brown;
+    opacity: 1.0;
+    /* text-shadow: 0ch;
+    box-shadow: 1ch; */
+}
+
+.slide .title{
+    height: 25%;
+    border-bottom: 2px solid white;
+    text-align: center;
+}
+
+.slide .slide-content{
+    height: 75%;
+    width: 100%;
+    display:flex;
+
+    background-color: aliceblue;
+
+    padding: 5px;
+}
+
+.slide-content .desc{
+    height: 100%;
+    width: 48%;
+ 
+    background-color: cadetblue;
+    border-radius: 5px;
+
+    font-size: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0px 5px;
+    padding: 5px;
+}
+
+
+.slide-content img{
+    height: 100%;
+    width: 50%;
+    border-radius: 5px;
+}
+
+#slide-list{
+    height: calc(92vh - 120px);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#create-slide {
+    display: none;
+}
+
+#create-slide div {
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    /* background color bhi set ker sakte hai */
+    
+}
+
+#create-slide textarea {
+    width: 90%;
+    height: 50vh;
+    font-size: 30px;
+    border-radius: 4px;
+    text-align: center;
+    /* background-color: yellow; */
+}
+
+#create-slide input {
+    width: 90%;
+    height: 6vh;
+    font-size: 30px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* save slide wala button hai ye */
+#create-slide button {
+    padding: 1px;
+    height: 10vh; 
+    width: 10%; 
+    margin: 1px;
+
+    border-color: black;
+    border-radius: 4px;
+    background-color: teal;
+    color: white;
+    cursor: pointer;
+}
+
+#create-slide button:hover{
+    background-color: grey;
+}
+
+#show-slide {
+    display: none;
+}
+
+.slide-in-view{
+    height: 95%;
+    width: 95%;
+    border: 2px solid brown;
+    background-color: teal;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    
+    /* sabki opacity kuch 0.8 se set kerdei tora dhundla sa dikehga */
+    /* and jiko hover karengei vo clearly dikhega */
+    opacity: 0.8;
+
+    /* left mei slide list mei 2 slides ke beech mei distance margin hai */
+    margin: 5px 2px;
+
+    /* padding ander wala gap*/
+    /* padding: 5px; */
+}
+
+.slide-in-view .slide-header{
+    height: 10%;
+    border-bottom: 2px solid white;
+    display: flex;
+    padding-top: 10px;
+}
+
+
+.slide-in-view .slide-header .title{
+    /* height: 13%;
+    border-bottom: 2px solid white; */
+
+    width: 98%;
+    text-align: center;
+
+    /* jo slide main menu mei open hai uska title ka font size hai */
+    font-size: 40px;
+}
+
+/* edit and delete wale button material icons mei span mei pade hai  */
+.slide-in-view .slide-header span{
+     padding : 10px 5px;
+}
+
+.slide-in-view .slide-header span:hover{
+    color: black;
+    /* border-color: black; */
+    text-decoration-color: black;
+    text-decoration: underline;
+    transform: scale(1.2);
+}
+
+.slide-in-view .slide-content{
+    height: 90%;
+    width: 100%;
+    display:flex;
+    
+    /* iska colour badalna hai baad mei :) */
+    background-color: aliceblue;
+
+    padding: 5px;
+}
+
+.slide-in-view .slide-content .desc{
+    height: 100%;
+    width: 48%;
+ 
+    background-color: cadetblue;
+    border-radius: 5px;
+
+    font-size: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0px 5px;
+    padding: 5px;
+}
+
+
+.slide-in-view .slide-content img{
+    height: 100%;
+    width: 50%;
+    border-radius: 5px;
+}
+
+/* upload file wala button to hai per displau none kerke hide ker diya usko */
+#uploadFile{
+    display:none;
+}
